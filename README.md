@@ -1,1 +1,1 @@
-# FinTracker
+# FinTracker This Expense Tracker Website enables users to record, manage, and analyze their daily spending through an intuitive web interface. Built using Java with JDBC, MySQL, and HTML/CSS, & also uses many OOPs concepts the system securely stores transactions, categorizes expenses, and generates summaries to help users understand and control their financial habits.
