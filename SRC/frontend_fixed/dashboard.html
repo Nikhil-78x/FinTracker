@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Expense Tracker Dashboard</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b6cee",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200">
+  <div class="relative flex min-h-screen w-full flex-row">
+    <!-- SideNavBar -->
+    <aside
+      class="sticky top-0 flex h-screen w-64 flex-col border-r border-slate-200 bg-background-light dark:border-slate-800 dark:bg-background-dark">
+      <div class="flex h-full flex-col justify-between p-4">
+        <div class="flex flex-col gap-6">
+          <div class="flex items-center gap-3 px-3">
+            <div class="flex items-center justify-center rounded-lg bg-primary p-2 text-white">
+              <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+            </div>
+            <div class="flex flex-col">
+              <h1 class="text-base font-bold text-slate-900 dark:text-white">Fintrack</h1>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Personal Finance</p>
+            </div>
+          </div>
+          <!-- replace only the nav hrefs -->
+
+<nav class="flex flex-col gap-2">
+  <a class="flex items-center gap-3 rounded-lg bg-primary/10 px-3 py-2 text-primary dark:bg-primary/20"
+     href="dashboard.html">
+     <span class="material-symbols-outlined text-2xl">dashboard</span>
+     <p class="text-sm font-medium">Dashboard</p>
+  </a>
+
+  <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 
+     dark:text-slate-400 dark:hover:bg-slate-800"
+     href="transaction.html">
+     <span class="material-symbols-outlined text-2xl">receipt_long</span>
+     <p class="text-sm font-medium">Transactions</p>
+  </a>
+
+  <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 
+     dark:text-slate-400 dark:hover:bg-slate-800"
+     href="budget.html">
+     <span class="material-symbols-outlined text-2xl">donut_small</span>
+     <p class="text-sm font-medium">Budgets</p>
+  </a>
+
+  <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 
+     dark:text-slate-400 dark:hover:bg-slate-800"
+     href="report.html">
+     <span class="material-symbols-outlined text-2xl">bar_chart</span>
+     <p class="text-sm font-medium">Reports</p>
+  </a>
+</nav>
+
+<!-- settings + logout -->
+
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 
+   dark:text-slate-400 dark:hover:bg-slate-800"
+   href="settings.html">
+   <span class="material-symbols-outlined text-2xl">settings</span>
+   <p class="text-sm font-medium">Settings</p>
+</a>
+
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 
+   dark:text-slate-400 dark:hover:bg-slate-800"
+   href="loginpage.html">
+   <span class="material-symbols-outlined text-2xl">logout</span>
+   <p class="text-sm font-medium">Logout</p>
+</a>
+
+<!-- View All in table -->
+<a class="text-sm font-medium text-primary hover:underline" href="transaction.html">View All</a>
+
+        </div>
+        <div class="flex flex-col gap-2">
+          <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+            href="#">
+            <span class="material-symbols-outlined text-2xl">settings</span>
+            <p class="text-sm font-medium">Settings</p>
+          </a>
+          <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+            href="#">
+            <span class="material-symbols-outlined text-2xl">logout</span>
+            <p class="text-sm font-medium">Logout</p>
+          </a>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="flex w-full flex-1 flex-col">
+      <!-- TopNavBar -->
+      <header
+        class="sticky top-0 z-10 flex h-16 items-center justify-between whitespace-nowrap border-b border-slate-200 bg-background-light/80 px-8 backdrop-blur-sm dark:border-slate-800 dark:bg-background-dark/80">
+        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Dashboard</h2>
+        <div class="flex flex-1 items-center justify-end gap-4">
+          <button
+            class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white">
+            <span class="material-symbols-outlined text-lg">add</span>
+            <span class="truncate">Add Expense</span>
+          </button>
+          <button
+            class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-background-light text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+            <span class="material-symbols-outlined text-xl">notifications</span>
+          </button>
+          <div class="h-10 w-10 rounded-full bg-cover bg-center bg-no-repeat" data-alt="User avatar image"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-Z200_Mtk1w1M6l0P6YMOjAapnKTbvM37iUoe4FrVrpezF1GHaYHx7GCHZum0cLLRh06GwcOrh1eJ_iR9rhKKRstTmMZ16YN_FL5rM3MNzVpt7L_z9cOX3nWcm90epJO9oPGxTtmmWh-B1lDkgaaQ7Wj1hcTdLkF-pD_mt3-T901dFIedIrEPxoBHTUS5d7ztcR5oKv0tIKtaAlHD4qIUQbyiZZlPgzeJTUgob1zHonCKItzWKyGAqZDOfbPe2UEdBMCnski6W3Zw");'>
+          </div>
+        </div>
+      </header>
+      <!-- Page Content -->
+      <div class="flex flex-col gap-6 p-8">
+        <!-- Filters -->
+        <div class="flex items-center gap-2">
+          <button
+            class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200/50 px-3 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+            <p class="text-sm font-medium">This Month</p>
+            <span class="material-symbols-outlined text-lg">expand_more</span>
+          </button>
+          <button
+            class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-transparent px-3 text-slate-500 hover:bg-slate-200/50 dark:hover:bg-slate-800">
+            <p class="text-sm font-medium">Last 90 Days</p>
+          </button>
+          <button
+            class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-transparent px-3 text-slate-500 hover:bg-slate-200/50 dark:hover:bg-slate-800">
+            <p class="text-sm font-medium">This Year</p>
+          </button>
+        </div>
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div
+            class="flex flex-col gap-2 rounded-xl border border-slate-200 bg-background-light p-5 dark:border-slate-800 dark:bg-slate-900">
+            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Spending</p>
+            <p class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">$2,450.78</p>
+            <p class="text-sm font-medium text-green-500">+5.2% from last month</p>
+          </div>
+          <div
+            class="flex flex-col gap-2 rounded-xl border border-slate-200 bg-background-light p-5 dark:border-slate-800 dark:bg-slate-900">
+            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Income</p>
+            <p class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">$5,200.00</p>
+            <p class="text-sm font-medium text-green-500">+1.0% from last month</p>
+          </div>
+          <div
+            class="flex flex-col gap-2 rounded-xl border border-slate-200 bg-background-light p-5 dark:border-slate-800 dark:bg-slate-900">
+            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Net Savings</p>
+            <p class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">$2,749.22</p>
+            <p class="text-sm font-medium text-red-500">-2.1% from last month</p>
+          </div>
+          <div
+            class="flex flex-col gap-2 rounded-xl border border-slate-200 bg-background-light p-5 dark:border-slate-800 dark:bg-slate-900">
+            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Budget Remaining</p>
+            <p class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">$549.22</p>
+            <p class="text-sm font-medium text-green-500">15% of budget left</p>
+          </div>
+        </div>
+        <!-- Charts Grid -->
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <!-- Spending Over Time (Line Chart) -->
+          <div
+            class="col-span-1 flex flex-col gap-2 rounded-xl border border-slate-200 bg-background-light p-6 dark:border-slate-800 dark:bg-slate-900 lg:col-span-2">
+            <p class="text-base font-medium text-slate-900 dark:text-white">Spending Over Time</p>
+            <div class="flex min-h-[250px] flex-1 flex-col gap-8 py-4">
+              <svg fill="none" height="100%" preserveaspectratio="none" viewbox="-3 0 478 150" width="100%"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H0V109Z"
+                  fill="url(#paint0_linear_chart)"></path>
+                <path
+                  d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25"
+                  stroke="#2b6cee" stroke-linecap="round" stroke-width="3"></path>
+                <defs>
+                  <lineargradient gradientunits="userSpaceOnUse" id="paint0_linear_chart" x1="236" x2="236" y1="1"
+                    y2="149">
+                    <stop stop-color="#2b6cee" stop-opacity="0.3"></stop>
+                    <stop offset="1" stop-color="#2b6cee" stop-opacity="0"></stop>
+                  </lineargradient>
+                </defs>
+              </svg>
+              <div class="flex justify-around">
+                <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Week 1</p>
+                <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Week 2</p>
+                <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Week 3</p>
+                <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Week 4</p>
+              </div>
+            </div>
+          </div>
+          <!-- Spending by Category (Doughnut Chart) -->
+          <div
+            class="col-span-1 flex flex-col gap-4 rounded-xl border border-slate-200 bg-background-light p-6 dark:border-slate-800 dark:bg-slate-900">
+            <p class="text-base font-medium text-slate-900 dark:text-white">Spending by Category</p>
+            <div class="relative flex min-h-[250px] flex-1 items-center justify-center py-4">
+              <svg class="h-full w-full" viewbox="0 0 36 36">
+                <circle class="stroke-current text-slate-200 dark:text-slate-700" cx="18" cy="18" fill="transparent"
+                  r="15.9154943092" stroke-width="4"></circle>
+                <circle class="stroke-current text-purple-500" cx="18" cy="18" fill="transparent" r="15.9154943092"
+                  stroke-dasharray="40, 100" stroke-dashoffset="25" stroke-width="4"></circle>
+                <circle class="stroke-current text-sky-500" cx="18" cy="18" fill="transparent" r="15.9154943092"
+                  stroke-dasharray="30, 100" stroke-dashoffset="-15" stroke-width="4"></circle>
+                <circle class="stroke-current text-teal-500" cx="18" cy="18" fill="transparent" r="15.9154943092"
+                  stroke-dasharray="15, 100" stroke-dashoffset="-45" stroke-width="4"></circle>
+                <circle class="stroke-current text-amber-500" cx="18" cy="18" fill="transparent" r="15.9154943092"
+                  stroke-dasharray="10, 100" stroke-dashoffset="-60" stroke-width="4"></circle>
+              </svg>
+              <div class="absolute flex flex-col items-center">
+                <span class="text-xs text-slate-500 dark:text-slate-400">Total Spent</span>
+                <span class="text-2xl font-bold text-slate-900 dark:text-white">$2,450</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+              <div class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-purple-500"></div>
+                <span class="text-slate-600 dark:text-slate-400">Food (40%)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-sky-500"></div>
+                <span class="text-slate-600 dark:text-slate-400">Bills (30%)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-teal-500"></div>
+                <span class="text-slate-600 dark:text-slate-400">Transport (15%)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-amber-500"></div>
+                <span class="text-slate-600 dark:text-slate-400">Shopping (10%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Recent Transactions Table -->
+        <div
+          class="flex flex-col gap-4 rounded-xl border border-slate-200 bg-background-light p-6 dark:border-slate-800 dark:bg-slate-900">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-medium text-slate-900 dark:text-white">Recent Transactions</h3>
+            <a class="text-sm font-medium text-primary hover:underline" href="#">View All</a>
+          </div>
+          <div class="w-full overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead
+                class="border-b border-slate-200 text-xs uppercase text-slate-500 dark:border-slate-800 dark:text-slate-400">
+                <tr>
+                  <th class="px-4 py-3" scope="col">Date</th>
+                  <th class="px-4 py-3" scope="col">Merchant</th>
+                  <th class="px-4 py-3" scope="col">Category</th>
+                  <th class="px-4 py-3 text-right" scope="col">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-slate-200 dark:border-slate-800">
+                  <td class="px-4 py-3 text-slate-600 dark:text-slate-400">Oct 24, 2023</td>
+                  <th class="whitespace-nowrap px-4 py-3 font-medium text-slate-900 dark:text-white" scope="row">
+                    Starbucks</th>
+                  <td class="px-4 py-3 text-slate-600 dark:text-slate-400">Food &amp; Drink</td>
+                  <td class="px-4 py-3 text-right font-medium text-slate-900 dark:text-white">-$5.75</td>
+                </tr>
+                <tr class="border-b border-slate-200 dark:border-slate-800">
+                  <td class="px-4 py-3 text-slate-600 dark:text-slate-400">Oct 23, 2023</td>
+                  <th class="whitespace-nowrap px-4 py-3 font-medium text-slate-900 dark:text-white" scope="row">Netflix
+                    Subscription</th>
+                  <td class="px-4 py-3 text-slate-600 dark:text-slate-400">Bills</td>
+                  <td class="px-4 py-3 text-right font-medium text-slate-900 dark:text-white">-$15.49</td>
+                </tr>
+                <tr class="border-b border-slate-200 dark:border-slate-800">
+                  <td class="px-4 py-3 text-slate-600 dark:text-slate-400">Oct 22, 2023</td>
+                  <th class="whitespace-nowrap px-4 py-3 font-medium text-slate-900 dark:text-white" scope="row">Exxon
+                    Mobil</th>
+                  <td class="px-4 py-3 text-slate-600 dark:text-slate-400">Transport</td>
+                  <td class="px-4 py-3 text-right font-medium text-slate-900 dark:text-white">-$45.20</td>
+                </tr>
+                <tr class="border-b border-slate-200 dark:border-slate-800">
+                  <td class="px-4 py-3 text-slate-600 dark:text-slate-400">Oct 21, 2023</td>
+                  <th class="whitespace-nowrap px-4 py-3 font-medium text-slate-900 dark:text-white" scope="row">
+                    Amazon.com</th>
+                  <td class="px-4 py-3 text-slate-600 dark:text-slate-400">Shopping</td>
+                  <td class="px-4 py-3 text-right font-medium text-slate-900 dark:text-white">-$128.99</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 text-slate-600 dark:text-slate-400">Oct 20, 2023</td>
+                  <th class="whitespace-nowrap px-4 py-3 font-medium text-slate-900 dark:text-white" scope="row">Whole
+                    Foods Market</th>
+                  <td class="px-4 py-3 text-slate-600 dark:text-slate-400">Groceries</td>
+                  <td class="px-4 py-3 text-right font-medium text-slate-900 dark:text-white">-$78.14</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
