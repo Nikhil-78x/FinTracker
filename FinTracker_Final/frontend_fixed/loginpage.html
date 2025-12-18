@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Authentication Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<form action="http://localhost:8000/login" method="POST">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden group/design-root">
+<div class="flex-grow">
+<div class="min-h-screen lg:grid lg:grid-cols-2">
+<!-- Left Panel -->
+<div class="relative hidden lg:flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900/50 p-12">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/10 dark:from-primary/20 dark:via-transparent dark:to-primary/20"></div>
+<div class="relative z-10 flex flex-col items-center text-center max-w-md">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-primary p-3 rounded-xl shadow-lg">
+<span class="material-symbols-outlined text-white text-3xl">
+                                    account_balance_wallet
+                                </span>
+</div>
+<span class="text-2xl font-bold text-gray-900 dark:text-white">FinTrack</span>
+</div>
+<h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Effortless Expense Tracking.</h1>
+<p class="text-lg text-gray-600 dark:text-gray-400">Gain clarity and control over your spending.</p>
+<div class="mt-12 w-full max-w-sm h-64 bg-cover bg-center rounded-xl shadow-2xl" data-alt="Abstract gradient of blue and purple shapes representing financial data visualization." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzypb9FK3Sn5LXEUhUVz55L-R6MS6spTmttNg2QLR_2Yp57k0zewgZli3mGltpmBzJH8k_24Ql6f4oGX8TZygG3QtM-aYiTrSu2MZVddTQr6tbUSe7eLz_uoA5fhwktFx9vukV5tYBrjrqXsxG7HrBVYohAXMVsQZlnJQC9BpJsDPtq-wyszT315HwrYvZYc1oDS-hHseADQ-HCfvFrPIlIfd-e4RNn-FLVj-haCjjFH_4BfydnNk4a3GpfctnKZSb_vhxoMJvuKoO');"></div>
+</div>
+</div>
+<!-- Right Panel -->
+<div class="flex flex-col items-center justify-center p-6 sm:p-12 bg-background-light dark:bg-background-dark">
+<div class="w-full max-w-md">
+<!-- Mobile Header -->
+<div class="lg:hidden flex items-center justify-center gap-3 mb-8">
+<div class="bg-primary p-2 rounded-lg shadow-lg">
+<span class="material-symbols-outlined text-white text-2xl">
+                                    account_balance_wallet
+                                </span>
+</div>
+<span class="text-xl font-bold text-gray-900 dark:text-white">ExpenseTracker</span>
+</div>
+<!-- Segmented Buttons -->
+<div class="flex px-4 py-3 justify-center">
+<div class="flex h-10 w-full max-w-xs items-center justify-center rounded-lg bg-gray-200 dark:bg-[#282e39] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-[#111318] has-[:checked]:shadow-sm has-[:checked]:text-gray-900 dark:has-[:checked]:text-white text-gray-500 dark:text-[#9da6b9] text-sm font-medium leading-normal transition-colors duration-200">
+<span class="truncate">Login</span>
+<input checked="" class="invisible w-0" name="auth-tab" type="radio" value="Login"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-[#111318] has-[:checked]:shadow-sm has-[:checked]:text-gray-900 dark:has-[:checked]:text-white text-gray-500 dark:text-[#9da6b9] text-sm font-medium leading-normal transition-colors duration-200">
+<span class="truncate">Sign Up</span>
+<input class="invisible w-0" name="auth-tab" type="radio" value="Sign Up"/>
+</label>
+</div>
+</div>
+<!-- Login Form Content -->
+<div class="space-y-6">
+<h1 class="text-gray-900 dark:text-white tracking-tight text-[32px] font-bold leading-tight px-4 text-left pb-3 pt-6">Welcome Back</h1>
+<!-- Email Field -->
+<div class="flex flex-wrap items-end gap-4 px-4 py-1">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal pb-2">Email Address</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] focus:border-primary dark:focus:border-primary h-14 placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] p-[15px] text-base font-normal leading-normal" placeholder="Enter your email" value=""/ name="Enter_your_email">
+</label>
+</div>
+<!-- Password Field -->
+<div class="flex flex-wrap items-end gap-4 px-4 py-1">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal pb-2">Password</p>
+<div class="flex w-full flex-1 items-stretch">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-l-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] focus:border-primary dark:focus:border-primary h-14 placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] p-[15px] border-r-0 pr-2 text-base font-normal leading-normal" placeholder="Enter your password" type="password" value=""/ name="Enter_your_password">
+<button class="text-gray-400 dark:text-[#9da6b9] flex border border-gray-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] items-center justify-center px-4 rounded-r-lg border-l-0 hover:text-gray-600 dark:hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary dark:focus:border-primary">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+</label>
+</div>
+<div class="px-4">
+<a class="text-primary hover:underline text-sm font-medium leading-normal" href="#">Forgot your password?</a>
+</div>
+<!-- CTA Button -->
+<div class="px-4 pt-4">
+<button class="flex w-full items-center justify-center rounded-lg bg-primary h-14 text-white text-base font-semibold leading-normal shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark transition-colors duration-200">
+                                    Log In
+                                </button>
+</div>
+<!-- Divider -->
+<div class="flex items-center gap-4 px-4 py-2">
+<hr class="flex-grow border-t border-gray-200 dark:border-gray-700"/>
+<span class="text-sm text-gray-500 dark:text-gray-400">OR</span>
+<hr class="flex-grow border-t border-gray-200 dark:border-gray-700"/>
+</div>
+<!-- Social Logins -->
+<div class="flex flex-col sm:flex-row gap-4 px-4">
+<button class="flex-1 flex items-center justify-center gap-3 rounded-lg bg-white dark:bg-[#282e39] border border-gray-300 dark:border-[#3b4354] h-12 text-gray-800 dark:text-white text-sm font-medium leading-normal shadow-sm hover:bg-gray-50 dark:hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50 dark:focus:ring-offset-background-dark transition-colors duration-200">
+<svg class="w-5 h-5" viewbox="0 0 48 48">
+<path d="M24 9.5c3.9 0 6.9 1.6 9.1 3.7l6.8-6.8C35.9 2.5 30.5 0 24 0 14.9 0 7.3 5.4 3 13.1l8.5 6.6C13.3 12.8 18.2 9.5 24 9.5z" fill="#4285F4"></path>
+<path d="M46.2 25.1c0-1.6-.1-3.2-.4-4.7H24v9h12.4c-.5 2.9-2.2 5.4-4.7 7.1l7.3 5.7c4.3-4 6.9-10 6.9-17.1z" fill="#34A853"></path>
+<path d="M11.5 28.2c-.5-1.5-.8-3.1-.8-4.7s.3-3.2.8-4.7l-8.5-6.6C1.2 15.5 0 19.6 0 24s1.2 8.5 3 11.6l8.5-6.4z" fill="#FBBC05"></path>
+<path d="M24 48c6.5 0 12-2.1 15.9-5.7l-7.3-5.7c-2.1 1.4-4.9 2.3-8.6 2.3-5.8 0-10.7-3.3-12.5-7.9L3 37.1C7.3 44.6 14.9 48 24 48z" fill="#EA4335"></path>
+<path d="M0 0h48v48H0z" fill="none"></path>
+</svg>
+                                    Continue with Google
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</form>
+</body></html>

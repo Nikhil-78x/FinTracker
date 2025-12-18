@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Settings - Expense Tracker</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b6cee",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+  <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+    <div class="flex min-h-screen">
+      <!-- SideNavBar -->
+      <aside class="w-64 flex-shrink-0 bg-[#161d2b] p-4 flex flex-col justify-between">
+        <div class="flex flex-col gap-8">
+          <div class="flex items-center gap-3 px-2">
+            <span class="material-symbols-outlined text-primary text-3xl">account_balance_wallet</span>
+            <h2 class="text-white text-xl font-bold">FinTrack</h2>
+          </div>
+          <div class="flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/20" href="#">
+              <span class="material-symbols-outlined text-primary text-2xl">person</span>
+              <p class="text-primary text-sm font-medium leading-normal">Profile</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors duration-200"
+              href="#">
+              <span class="material-symbols-outlined text-slate-400 text-2xl">tune</span>
+              <p class="text-slate-300 text-sm font-medium leading-normal">Preferences</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors duration-200"
+              href="#">
+              <span class="material-symbols-outlined text-slate-400 text-2xl">shield</span>
+              <p class="text-slate-300 text-sm font-medium leading-normal">Security</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors duration-200"
+              href="#">
+              <span class="material-symbols-outlined text-slate-400 text-2xl">notifications</span>
+              <p class="text-slate-300 text-sm font-medium leading-normal">Notifications</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors duration-200"
+              href="#">
+              <span class="material-symbols-outlined text-slate-400 text-2xl">credit_card</span>
+              <p class="text-slate-300 text-sm font-medium leading-normal">Billing</p>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <div class="flex flex-col gap-2">
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors duration-200"
+              href="#">
+              <span class="material-symbols-outlined text-slate-400 text-2xl">help</span>
+              <p class="text-slate-300 text-sm font-medium leading-normal">Support</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors duration-200 text-red-400"
+              href="#">
+              <span class="material-symbols-outlined text-red-400 text-2xl">dangerous</span>
+              <p class="text-sm font-medium leading-normal">Danger Zone</p>
+            </a>
+          </div>
+          <div class="border-t border-slate-700 my-4"></div>
+          <div class="flex items-center gap-3 px-2">
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              data-alt="User avatar of Alex Doe"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCoLVO1S0JB_jnrwmbRDZ51tN0k8_A2z-fcnR2TWdbF96KM277Ky04p_AOVJu8DG8b7DR-TXZKFL_fq8o-zSD-WMj3uglZmEv9MMBxvVkEkroShvhjOcO1UFSVKC2mhFQ3V6aZbn4vgljHDt5ij1o_GbgIAveRWMrLVBzJuvPWEC57l5Tl45Vb7XVlDvidr_2MhsoPyIbVI5Kjjx3HoCg3QptKEWqcaopgrwhgolsC4mC2j5Y7f75PbMqLepJOZubxYoWZ3Mg-s9eK6");'>
+            </div>
+            <div class="flex flex-col">
+              <h1 class="text-white text-sm font-medium leading-normal">Nikhil</h1>
+              <p class="text-slate-400 text-xs font-normal leading-normal">nikhil@email.com</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main class="flex-1 p-8 md:p-12 overflow-y-auto">
+        <div class="max-w-4xl mx-auto">
+          <!-- Page Heading -->
+          <div class="mb-8">
+            <div class="flex min-w-72 flex-col gap-2">
+              <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em]">Profile</h1>
+              <p class="text-slate-400 text-base font-normal leading-normal">Update your photo and personal details
+                here.</p>
+            </div>
+          </div>
+          <!-- Profile Header -->
+          <div class="border border-slate-800 rounded-xl bg-[#161d2b]/50 p-6 @container mb-8">
+            <div class="flex w-full flex-col gap-6 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+              <div class="flex items-center gap-5">
+                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-24 w-24"
+                  data-alt="User avatar of Alex Doe"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUug6pOTho0TpyNqPV_o4K3U7Zuh5fEDb0-26u4lPcRdjPogYj37DuBbxKRvokYFfKC8j7SJtBhxEB-EtAeuRioQ4ejxwyGnperwiIK75vXLYVC-KTArX8s8jMiJxy2tnqiqYs7BU3FA1Zt9EWqHKJhn1CofOKzF8kRvYNlZPMqz6-9fiI3JmavWlbFXaU8_pnNGAmVovSyIx1GSA_xnwfkx5Qig70rJTvB0gdUw0HsRhdCMlDleoCkXnzXDz0HkYGHSlKi04avmV5");'>
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Nikhil</p>
+                  <p class="text-slate-400 text-base font-normal leading-normal">nikhil@email.com</p>
+                </div>
+              </div>
+              <div class="flex gap-3">
+                <button
+                  class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium leading-normal tracking-[0.015em] w-full max-w-[480px] @[480px]:w-auto transition-colors duration-200">
+                  <span class="truncate">Delete</span>
+                </button>
+                <button
+                  class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary/90 text-white text-sm font-bold leading-normal tracking-[0.015em] w-full max-w-[480px] @[480px]:w-auto transition-colors duration-200">
+                  <span class="truncate">Upload new photo</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Personal Info Form -->
+          <div class="border border-slate-800 rounded-xl bg-[#161d2b]/50">
+            <div class="p-6 border-b border-slate-800">
+              <h3 class="text-white text-lg font-semibold">Personal Information</h3>
+              <p class="text-slate-400 text-sm mt-1">Manage your name, username and email.</p>
+            </div>
+            <div class="p-6">
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6" action="http://localhost:8000/profile method="POST">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-slate-300 text-sm font-medium leading-normal pb-2">Full Name</p>
+                  <input
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-700 bg-[#101622] h-12 placeholder:text-slate-500 p-3 text-sm font-normal leading-normal transition-all duration-200"
+                    value="Nikhil" / name="field_1">
+                </label>
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-slate-300 text-sm font-medium leading-normal pb-2">Username</p>
+                  <input
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-700 bg-[#101622] h-12 placeholder:text-slate-500 p-3 text-sm font-normal leading-normal transition-all duration-200"
+                    value="Nikhil" / name="field_2">
+                </label>
+                <label class="flex flex-col min-w-40 flex-1 md:col-span-2">
+                  <p class="text-slate-300 text-sm font-medium leading-normal pb-2">Email Address</p>
+                  <input
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-700 bg-[#101622] h-12 placeholder:text-slate-500 p-3 text-sm font-normal leading-normal transition-all duration-200"
+                    value="nikhil@email.com" / name="field_3">
+                </label>
+                <label class="flex flex-col min-w-40 flex-1 md:col-span-2">
+                  <p class="text-slate-300 text-sm font-medium leading-normal pb-2">Bio</p>
+                  <textarea
+                    class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-700 bg-[#101622] h-28 placeholder:text-slate-500 p-3 text-sm font-normal leading-normal transition-all duration-200"
+                    placeholder="Tell us a little about yourself..." name="Tell_us_a_little_about_yourself"></textarea>
+                </label>
+              
+<button type="submit">Submit</button>
+</form>
+            </div>
+            <div class="p-6 bg-[#161d2b]/30 border-t border-slate-800 flex justify-end gap-4 rounded-b-xl">
+              <button
+                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium leading-normal tracking-[0.015em] transition-colors duration-200">
+                <span class="truncate">Cancel</span>
+              </button>
+              <button
+                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary/90 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled="">
+                <span class="truncate">Save Changes</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>
